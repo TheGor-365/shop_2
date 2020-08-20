@@ -793,13 +793,15 @@ true posixrules
       <Owner>postgres</Owner>
     </database>
     <database id="3" parent="1" name="rails_caurse_2_development">
-      <ObjectId>16394</ObjectId>
+      <ObjectId>16481</ObjectId>
       <Owner>first</Owner>
-      <IntrospectionStateNumber>494</IntrospectionStateNumber>
+      <IntrospectionStateNumber>538</IntrospectionStateNumber>
       <Current>1</Current>
+      <Relations>sequence|table|16499|16501|1
+</Relations>
     </database>
     <database id="4" parent="1" name="rails_caurse_2_test">
-      <ObjectId>16395</ObjectId>
+      <ObjectId>16482</ObjectId>
       <Owner>first</Owner>
     </database>
     <role id="5" parent="1" name="first">
@@ -859,7 +861,7 @@ true posixrules
       <Comment>standard public schema</Comment>
       <StateNumber>276</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>495</IntrospectionStateNumber>
+      <IntrospectionStateNumber>539</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="18" parent="3" name="heap">
@@ -929,5 +931,154 @@ true posixrules
     <language id="27" parent="3" name="internal"/>
     <language id="28" parent="3" name="plpgsql"/>
     <language id="29" parent="3" name="sql"/>
+    <sequence id="30" parent="17" name="items_id_seq">
+      <ObjectId>16499</ObjectId>
+      <Owner>first</Owner>
+      <StateNumber>536</StateNumber>
+      <DataType>bigint|0s</DataType>
+    </sequence>
+    <table id="31" parent="17" name="ar_internal_metadata">
+      <ObjectId>16491</ObjectId>
+      <Owner>first</Owner>
+      <StateNumber>535</StateNumber>
+    </table>
+    <table id="32" parent="17" name="items">
+      <ObjectId>16501</ObjectId>
+      <Owner>first</Owner>
+      <StateNumber>536</StateNumber>
+    </table>
+    <table id="33" parent="17" name="schema_migrations">
+      <ObjectId>16483</ObjectId>
+      <Owner>first</Owner>
+      <StateNumber>534</StateNumber>
+    </table>
+    <column id="34" parent="31" name="key">
+      <Position>1</Position>
+      <DataType>varchar|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>535</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="35" parent="31" name="value">
+      <Position>2</Position>
+      <DataType>varchar|0s</DataType>
+      <StateNumber>535</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="36" parent="31" name="created_at">
+      <Position>3</Position>
+      <DataType>timestamp(6)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>535</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="37" parent="31" name="updated_at">
+      <Position>4</Position>
+      <DataType>timestamp(6)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>535</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <index id="38" parent="31" name="ar_internal_metadata_pkey">
+      <ObjectId>16497</ObjectId>
+      <StateNumber>535</StateNumber>
+      <ColNames>key</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="39" parent="31" name="ar_internal_metadata_pkey">
+      <ObjectId>16498</ObjectId>
+      <StateNumber>535</StateNumber>
+      <ColNames>key</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>ar_internal_metadata_pkey</UnderlyingIndexName>
+    </key>
+    <column id="40" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>536</StateNumber>
+      <DefaultExpression>nextval(&apos;items_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="41" parent="32" name="price">
+      <Position>2</Position>
+      <DataType>double precision|0s</DataType>
+      <StateNumber>536</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="42" parent="32" name="name">
+      <Position>3</Position>
+      <DataType>varchar|0s</DataType>
+      <StateNumber>536</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="43" parent="32" name="real">
+      <Position>4</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>536</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="44" parent="32" name="weight">
+      <Position>5</Position>
+      <DataType>double precision|0s</DataType>
+      <StateNumber>536</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="45" parent="32" name="description">
+      <Position>6</Position>
+      <DataType>varchar|0s</DataType>
+      <StateNumber>536</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="46" parent="32" name="created_at">
+      <Position>7</Position>
+      <DataType>timestamp(6)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>536</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="47" parent="32" name="updated_at">
+      <Position>8</Position>
+      <DataType>timestamp(6)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>536</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <index id="48" parent="32" name="items_pkey">
+      <ObjectId>16508</ObjectId>
+      <StateNumber>536</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="49" parent="32" name="items_pkey">
+      <ObjectId>16509</ObjectId>
+      <StateNumber>536</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>items_pkey</UnderlyingIndexName>
+    </key>
+    <column id="50" parent="33" name="version">
+      <Position>1</Position>
+      <DataType>varchar|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>534</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="51" parent="33" name="schema_migrations_pkey">
+      <ObjectId>16489</ObjectId>
+      <StateNumber>534</StateNumber>
+      <ColNames>version</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="52" parent="33" name="schema_migrations_pkey">
+      <ObjectId>16490</ObjectId>
+      <StateNumber>534</StateNumber>
+      <ColNames>version</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>schema_migrations_pkey</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>
