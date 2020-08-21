@@ -1,6 +1,6 @@
 <h2>Show item</h2>
 
-<h4><%= @item.name %></h4>
+<h4><%= @item.name.upcase %></h4>
 
 <ul>
   <li><b>Price</b> <%= @item.price %>$</li>
@@ -12,3 +12,5 @@
 <%= button_to "Edit #{@item.name}", edit_item_path, method: :get %>
 <%= button_to 'All items', items_path, method: :get %>
 <%= button_to 'Delete', item_path(@item), method: :delete %>
+
+<%= render :partial => 'shared/email' %> 
