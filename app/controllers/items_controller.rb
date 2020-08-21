@@ -16,23 +16,34 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(items_params)
-    if @item.persisted?
-      redirect_to 'index'
+    if @item = Item.create(items_params)
+      redirect_to items_path
     else
       render json: @item.errors, status: :unprocessable_entity
     end
   end
 
-  def edit; end
+  def edit
+    @item = Item.where(id: params[:id]).first
+  end
 
-  def update; end
+  def update
+    Item.where(id: params[:id]).update(items_params)
 
-  def destroy; end
+    redirect_to item_path
+  end
+
+  def destroy
+    if @item = Item.where(id: params[:id]).first.destroy
+      redirect_to items_path
+    else
+      render json: @item.errors, status: :unprocessable_entity
+    end
+  end
 
   private
 
   def items_params
-    params.permit(:name, :price, :description)
+    params.permit(:name, :price, :description, :real, :weight)
   end
 end
