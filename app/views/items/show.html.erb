@@ -9,6 +9,6 @@
   <li><b>Weight</b> <%= @item.weight %></li>
 </ul>
 
-<%= link_to "Edit #{@item.name}", edit_item_path %> |
-<%= link_to 'All items', items_path %> |
-<%= link_to 'Delete', item_path(@item), method: :delete %> |
+<%= button_to "Edit #{@item.name}", edit_item_path, method: :get %>
+<%= button_to 'All items', items_path, method: :get %>
+<%= button_to 'Delete', item_path(@item), method: :delete %>
