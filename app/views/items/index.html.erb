@@ -8,6 +8,7 @@
       <th scope="col">Price</th>
       <th scope="col">Real</th>
       <th scope="col">Description</th>
+      <th scope="col">Rating</th>
     </tr>
   </thead>
   <tbody>
@@ -18,10 +19,16 @@
         <td><%= item.price %></td>
         <td><%= item.real %></td>
         <td><%= item.description %></td>
+        <td><%= item.votes_count %> <%= link_to '+', upvote_item_path(item) %></td>
         <td><%= button_to 'Delete', item_path(item), method: :delete %></td>
         <td><%= button_to 'Edit', edit_item_path(item), method: :get %></td>
       </tr>
     <% end %>
   </tbody>
   </table>
+
+<br>
+
+<%= link_to 'New item', new_item_path %> |
+<%= link_to 'Only expensive', expensive_items_path %>
 

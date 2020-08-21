@@ -1,4 +1,6 @@
                                Prefix Verb   URI Pattern                                                                              Controller#Action
+                          upvote_item GET    /items/:id/upvote(.:format)                                                              items#upvote
+                      expensive_items GET    /items/expensive(.:format)                                                               items#expensive
                                 items GET    /items(.:format)                                                                         items#index
                                       POST   /items(.:format)                                                                         items#create
                              new_item GET    /items/new(.:format)                                                                     items#new
