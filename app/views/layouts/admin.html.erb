@@ -10,8 +10,15 @@
   </head>
 
   <body>
-  <h1>Rails course</h1>
+  <h1>Admin panel</h1>
     <%= yield %>
 
+  <footer>
+    <h3>Send your questions</h3>
+
+    <%= mail_to 'g9160832993@yandex.ru' do %>
+      <p>g9160832993@yandex.ru</p>
+    <% end %>
+  </footer>
   </body>
 </html>

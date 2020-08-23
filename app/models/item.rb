@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   has_many :positions
   has_many :carts, through: :positions
   has_many :comments, as: :commentable
+  has_one :image, as: :imageable
 
   after_initialize { puts 'initialize' } # Item.new, Item.first
   after_save       { puts 'save' } # Item.create, Item.save

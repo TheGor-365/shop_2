@@ -1,4 +1,5 @@
                                Prefix Verb   URI Pattern                                                                              Controller#Action
+                    admin_users_count GET    /admin/users_count(.:format)                                                             admin#users_count
                           upvote_item GET    /items/:id/upvote(.:format)                                                              items#upvote
                       expensive_items GET    /items/expensive(.:format)                                                               items#expensive
                                 items GET    /items(.:format)                                                                         items#index

@@ -1,12 +1,18 @@
 class ItemsController < ApplicationController
 
   skip_before_action :verify_authenticity_token
-  before_action :find_item, only: [:show, :edit, :update, :destroy, :upvote]
-  before_action :is_admin?, only: [:edit]
+  before_action :find_item, only: [:show, :edit, :update, :destroy, :upvote, :create]
   after_action :show_info, only: [:index]
 
   def index
-    @items = Item.all
+    @items = Item
+    @items = @items.where('price >= ?', params[:price_from])        if params[:price_from]
+    @items = @items.where('created_at >= ?', 1.day.ago)             if params[:today]
+    @items = @items.where('votes_count >= ?', params[:votes_from]) if params[:votes_from]
+    @items = @items.order(:id)
+
+    @items = @items.includes(:image)
+
     # render body: @items.map { |item| "#{item.name} #{item.price}" }.join('; ')
   end
 
@@ -59,12 +65,6 @@ class ItemsController < ApplicationController
   def find_item
     @item = Item.where(id: params[:id]).first
     render_404 unless @item
-  end
-
-  def is_admin?
-    true
-    # render_403 unless params[:admin]
-    # render json: 'Access Denied!', status: :forbidden unless  params[:admin]
   end
 
   def show_info
