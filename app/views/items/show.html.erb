@@ -2,15 +2,35 @@
 
 <h4><%= @item.name.upcase %></h4>
 
-<ul>
-  <li><b>Price</b> <%= @item.price %>$</li>
-  <li><b>Real</b> <%= @item.real %></li>
-  <li><b>Description</b> <%= @item.description %></li>
-  <li><b>Weight</b> <%= @item.weight %></li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Description</th>
+      <th scope="col">Real</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Link</th>
+      <th scope="col">Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @item.id %></td>
+      <td><%= @item.name %></td>
+      <td><%= @item.price %></td>
+      <td><%= urls_to_content(@item.description) %></td>
+      <td><%= @item.real %></td>
+      <td><%= @item.weight %></td>
+      <td><%= urls_to_content('https://ru.wikipedia.org/wiki/Flower') %></td>
+      <td><%= @item.votes_count %></td>
+    </tr>
+  </tbody>
+</table>
 
 <%= button_to "Edit #{@item.name}", edit_item_path, method: :get %>
 <%= button_to 'All items', items_path, method: :get %>
 <%= button_to 'Delete', item_path(@item), method: :delete %>
 
-<%= render :partial => 'shared/email' %> 
+<%= render :partial => 'shared/email' %>

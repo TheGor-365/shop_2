@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  layout false
+
   skip_before_action :verify_authenticity_token
   before_action :find_item, only: [:show, :edit, :update, :destroy, :upvote]
   before_action :is_admin?, only: [:edit]
@@ -62,7 +62,8 @@ class ItemsController < ApplicationController
   end
 
   def is_admin?
-    render_403 unless params[:admin]
+    true
+    # render_403 unless params[:admin]
     # render json: 'Access Denied!', status: :forbidden unless  params[:admin]
   end
 

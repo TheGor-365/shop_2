@@ -13,13 +13,13 @@
     </tr>
     </thead>
     <tbody>
-    <% @items.each do |item| %>
+    <% @items.sort.each do |item| %>
       <tr>
         <th scope="row"><%= item.id %></th>
         <td><%= link_to item.name, item_path(item) %></td>
         <td><%= item.price %></td>
         <td><%= item.real %></td>
-        <td><%= item.description %></td>
+        <td><%= 'img' if item.description %></td>
         <td><%= item.votes_count %> <%= link_to '+', upvote_item_path(item) %></td>
         <td><%= button_to 'Delete', item_path(item), method: :delete %></td>
         <td><%= button_to 'Edit', edit_item_path(item), method: :get %></td>
