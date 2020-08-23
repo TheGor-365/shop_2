@@ -6,16 +6,13 @@
 <!--  <input type="submit" name="Send">-->
 <!--</form>-->
 
-<%= form_tag items_path, method: :post do %>
+<%= simple_form_for @item do |f| %>
 
-  <%= label_tag :name %>
-  <%= text_field_tag :name %>
-  <%= label_tag :price %>
-  <%= text_field_tag :price %>
-  <%= label_tag :description %>
-  <%= text_area_tag :description %>
+  <%= f.input :name, label: :name, input_html: {class: 'form-text'} %>
+  <%= f.input :price, label: :price, input_html: {class: 'form-text'} %>
+  <%= f.input :description, label: :description, input_html: {class: 'form-text'} %>
 
-  <%= submit_tag 'Save', class: 'btn btn-primary btn-sm' %>
+  <%= f.button :submit, class: 'btn btn-primary btn-sm mt-3 mb-5' %>
 
 <% end %>
 

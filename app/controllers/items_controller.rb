@@ -16,14 +16,16 @@ class ItemsController < ApplicationController
     # render body: @items.map { |item| "#{item.name} #{item.price}" }.join('; ')
   end
 
-  def new; end
+  def new
+    @item = Item.new
+  end
 
   def show; end
 
   def create
-    item = Item.create(items_params)
+    @item = Item.create(items_params)
 
-    if item.persisted?
+    if @item.persisted?
       flash[:success] = 'Item was created.'
       redirect_to items_path
     else
@@ -47,7 +49,7 @@ class ItemsController < ApplicationController
 
   def destroy
     if @item.destroy.destroyed?
-      flash[:success] = "Item was deleted"
+      flash[:success] = 'Item was deleted'
       redirect_to items_path
     else
       flash[:error] = "Item wasn't deleted"
@@ -68,7 +70,7 @@ class ItemsController < ApplicationController
   private
 
   def items_params
-    params.permit(:name, :price, :description, :real, :weight)
+    params.require(:item).permit(:name, :price, :description, :real, :weight)
   end
 
   def find_item

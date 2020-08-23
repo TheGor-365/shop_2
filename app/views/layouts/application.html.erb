@@ -7,14 +7,16 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('favicon_1.png') %>
   </head>
 
   <body>
-  <h1>Rails course</h1>
-  <p class="alert"><%= flash[:error] %></p>
-  <p class="success"><%= flash[:success] %></p>
+    <div class="container mt-5 mb-5">
+      <h1>Rails course</h1>
+      <p class="alert"><%= flash[:error] %></p>
+      <p class="success"><%= flash[:success] %></p>
 
-    <%= yield %>
-
+      <%= yield %>
+    </div>
   </body>
 </html>
