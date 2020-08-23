@@ -10,14 +10,24 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap
  *= require_tree .
  *= require_self
+
  */
 
-.table, tr, td {
-    border: 1px solid darkgray;
-    padding: 16px;
-    margin: 6px;
+/*.table, tr, td {*/
+/*    border: 1px solid darkgray;*/
+/*    padding: 16px;*/
+/*    margin: 6px;*/
 
-    background: white;
+/*    background: white;*/
+/*}*/
+
+.alert {
+    color: #B00100;
+}
+
+.success {
+    color: green;
 }

@@ -23,7 +23,7 @@
       <td><%= urls_to_content(@item.description) %></td>
       <td><%= @item.real %></td>
       <td><%= @item.weight %></td>
-      <td><%= urls_to_content('https://ru.wikipedia.org/wiki/Flower') %></td>
+      <td><%= urls_to_links(@item.description) %></td>
       <td><%= @item.votes_count %></td>
     </tr>
   </tbody>

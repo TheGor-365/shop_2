@@ -11,6 +11,9 @@
 
   <body>
   <h1>Rails course</h1>
+  <p class="alert"><%= flash[:error] %></p>
+  <p class="success"><%= flash[:success] %></p>
+
     <%= yield %>
 
   </body>
