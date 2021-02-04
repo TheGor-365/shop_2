@@ -16,7 +16,7 @@
     </thead>
     <tbody>
     <% @items.each do |item| %>
-      <tr>
+      <tr data-item_id="<%= item.id %>">
         <td><%= item.id %></td>
         <td><%= link_to item.name, item_path(item) %></td>
         <td><%= item.price %></td>
@@ -24,7 +24,7 @@
         <td><%= item.description %></td>
         <td><%= item.votes_count %> <%= link_to '+', upvote_item_path(item) %></td>
         <td><%= !item.image.nil? ? image_tag(item.image.file, width: '30px', height: '30px') : 'No img' %></td>
-        <td><%= button_to 'Delete', item_path(item), method: :delete %></td>
+        <td><%= button_to 'Delete', item_path(item), method: :delete, class: 'deleteAction' %></td>
         <td><%= button_to 'Edit', edit_item_path(item), method: :get %></td>
       </tr>
     <% end %>
